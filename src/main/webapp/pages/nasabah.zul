@@ -1,0 +1,87 @@
+<?page title="Nasabah" ?>
+<zk>
+	<window id="nasabahPage" border="none" width="100%" height="100%"
+		apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('com.yayat.viewmodel.NasabahVM')">
+		<panel width="99%" border="normal">
+			<caption label="Form Nasabah" style="text-align: left;">
+			</caption>
+			<panelchildren>
+				<vlayout>
+					<grid
+						model="@load(vm.listOfNasabah)"
+						emptyMessage="Tidak ada data nasabah">
+						<auxhead>
+							<auxheader colspan="6"
+								label="Data Nasabah">
+								<hlayout>
+									<button label="Create New"
+										 popup="add" />
+								</hlayout>
+							</auxheader>
+						</auxhead>
+						<columns>
+							<column label="No" />
+							<column label="Nama" />
+							<column label="Kota" />
+							<column label="Alamat" />
+							<column label="Tlp" />
+							<column label="Remove" />
+						</columns>
+						<template name="model">
+							<row>
+								<label
+									value="@load(each.no) @save(each.no)"  />
+								<textbox
+									value="@load(each.nama) @save(each.nama)" inplace="true" />
+								<textbox
+									value="@load(each.kota) @save(each.kota)" inplace="true" />
+								<textbox 
+									value="@load(each.alamat) @save(each.alamat)" inplace="true" />
+								<textbox
+									value="@load(each.tlp) @save(each.tlp)" inplace="true" />
+								<button onClick="@command('delete',entity=each)"></button>	
+							</row>
+						</template>
+					</grid>
+				</vlayout>
+			</panelchildren>
+		</panel>
+		<popup id="add" width="300px">
+
+			<panel>
+				<caption label="Buat baru" style="text-align: left;">
+				</caption>
+				<panelchildren>
+					<groupbox validationMessages="@id('adNewMsg')">
+						<vlayout>
+							<label value="No"></label>
+							<textbox
+								value="@load(vm.newNasabah.no) @save(vm.newNasabah.no)" />
+							<label value="Nama"></label>
+							<textbox
+								value="@load(vm.newNasabah.nama) @save(vm.newNasabah.nama)" />
+							<label value="Kota"></label>
+							<textbox
+								value="@load(vm.newNasabah.kota) @save(vm.newNasabah.kota)" />
+							<label value="Alamat"></label>
+							<textbox
+								value="@load(vm.newNasabah.alamat) @save(vm.newNasabah.alamat)"
+								cols="20" rows="3" />
+							<label value="Tlp"></label>
+							<textbox
+								value="@load(vm.newNasabah.tlp) @save(vm.newNasabah.tlp)" />
+						</vlayout>
+					</groupbox>
+					<toolbar>
+						<button label="Create"
+							onClick="@command('confirmAdd',data=add)">
+
+						</button>
+					</toolbar>
+				</panelchildren>
+			</panel>
+		</popup>
+
+	</window>
+</zk>

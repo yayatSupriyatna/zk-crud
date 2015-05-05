@@ -1,8 +1,7 @@
 <zk>
-	<window apply="org.zkoss.bind.BindComposer"
-		viewModel="@id('vm')@init('com.yayat.MyViewModel')"
-		validationMessages="@id('vmsgs')">
-		<hlayout>today is <label value="@load(vm.answer)" /></hlayout>
-		<button label="ask" onClick="@command('cmd')"/>
-	</window>
+	<borderlayout hflex="1" vflex="1">
+		<center autoscroll="true" id="mainContent">
+		<include src="pages/nasabah.zul"></include>
+		</center>
+	</borderlayout>
 </zk>
