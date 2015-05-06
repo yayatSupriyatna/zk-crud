@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="nasabah" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6d61729d-3565-49a6-9f2e-aab2249787f1">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="nasabah" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6d61729d-3565-49a6-9f2e-aab2249787f1">
 	<property name="ireport.zoom" value="1.100000000000001"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -8,23 +8,13 @@
 	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
 	<style name="Detail" fontName="Arial" fontSize="12"/>
 	<queryString>
-		<![CDATA[select * from nasabah;]]>
+		<![CDATA[]]>
 	</queryString>
-	<field name="tlp" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="no" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="nama" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="kota" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="alamat" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
+	<field name="no" class="java.lang.String"/>
+	<field name="nama" class="java.lang.String"/>
+	<field name="kota" class="java.lang.String"/>
+	<field name="alamat" class="java.lang.String"/>
+	<field name="tlp" class="java.lang.String"/>
 	<group name="Group1">
 		<groupExpression><![CDATA[(int)($V{REPORT_COUNT}/15)]]></groupExpression>
 		<groupHeader>
@@ -112,38 +102,23 @@
 				</graphicElement>
 			</line>
 			<textField>
-				<reportElement x="0" y="1" width="100" height="20" uuid="95362f12-4c01-4aaa-b92d-84fa11a72ec0"/>
-				<textElement verticalAlignment="Bottom">
-					<paragraph leftIndent="10"/>
-				</textElement>
+				<reportElement x="0" y="1" width="100" height="20" uuid="ef0b51e6-f57a-456b-85a2-a8baa8b14f84"/>
 				<textFieldExpression><![CDATA[$F{no}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="100" y="1" width="100" height="20" uuid="cd2a515f-536a-4f43-a1f7-1f1acf675777"/>
-				<textElement verticalAlignment="Bottom">
-					<paragraph leftIndent="10"/>
-				</textElement>
+				<reportElement x="100" y="4" width="100" height="20" uuid="f4d7dfcd-7f07-4909-bee5-e06c68e2b1e9"/>
 				<textFieldExpression><![CDATA[$F{nama}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="200" y="1" width="100" height="20" uuid="63d70638-a15d-418c-bc2d-c2fb22ff87d1"/>
-				<textElement verticalAlignment="Bottom">
-					<paragraph leftIndent="10"/>
-				</textElement>
+				<reportElement x="200" y="4" width="100" height="20" uuid="117aaf31-0312-4895-9bd3-f12d08e50d0a"/>
 				<textFieldExpression><![CDATA[$F{kota}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="300" y="0" width="133" height="20" uuid="a6154642-9a11-4cca-95c8-877e8b9c7234"/>
-				<textElement verticalAlignment="Bottom">
-					<paragraph leftIndent="10"/>
-				</textElement>
+				<reportElement x="300" y="4" width="133" height="20" uuid="f93744eb-15f8-4028-a41a-2973d9e47eb4"/>
 				<textFieldExpression><![CDATA[$F{alamat}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="433" y="0" width="120" height="20" uuid="b9cf7273-f0d6-4d14-97a7-2b85a48bf90b"/>
-				<textElement verticalAlignment="Bottom">
-					<paragraph leftIndent="10"/>
-				</textElement>
+				<reportElement x="433" y="4" width="120" height="20" uuid="f6f3ac87-0227-44ee-95a5-e715f2d0a022"/>
 				<textFieldExpression><![CDATA[$F{tlp}]]></textFieldExpression>
 			</textField>
 		</band>
@@ -156,14 +131,6 @@
 					<pen lineWidth="0.5" lineColor="#999999"/>
 				</graphicElement>
 			</line>
-			<staticText>
-				<reportElement x="60" y="0" width="100" height="20" uuid="ac92e8a7-fa8a-406b-99ef-c2891489321c"/>
-				<text><![CDATA[no]]></text>
-			</staticText>
-			<textField>
-				<reportElement x="160" y="0" width="100" height="20" uuid="634846e6-498f-41c2-8067-cef01c0f3016"/>
-				<textFieldExpression><![CDATA[$F{no}]]></textFieldExpression>
-			</textField>
 		</band>
 	</columnFooter>
 	<pageFooter>

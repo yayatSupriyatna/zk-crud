@@ -1,10 +1,9 @@
 package com.yayat.model;
 
-import java.io.Serializable;
 
-public class Nasabah implements Serializable {
+public class Nasabah {
 	
-	private static final long serialVersionUID = 1L;
+
 	private String no;
 	private String nama;
 	private String kota;

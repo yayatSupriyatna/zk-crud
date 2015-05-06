@@ -8,7 +8,7 @@
 			</caption>
 			<panelchildren>
 				<vlayout>
-					<grid model="@load(vm.listOfNasabah)" 
+					<grid model="@load(vm.listOfNasabah)"
 						emptyMessage="Tidak ada data nasabah">
 						<auxhead>
 							<auxheader colspan="6"
@@ -16,6 +16,8 @@
 								<hlayout>
 									<button label="Create New"
 										popup="add" />
+									<button label="Generate PDF"  onClick="@command('onShowReport')"
+										 />
 								</hlayout>
 							</auxheader>
 						</auxhead>
@@ -29,16 +31,19 @@
 						</columns>
 						<template name="model">
 							<row>
-								<label
-									value="@load(each.no)" />
+								<label value="@load(each.no)" />
 								<textbox
-									value="@load(each.nama) @save(each.nama, before='submit')" inplace="true" constraint="no empty" />
+									value="@load(each.nama) @save(each.nama, before='submit')"
+									inplace="true" constraint="no empty" />
 								<textbox
-									value="@load(each.kota) @save(each.kota, before='submit')" inplace="true" constraint="no empty" />
+									value="@load(each.kota) @save(each.kota, before='submit')"
+									inplace="true" constraint="no empty" />
 								<textbox
-									value="@load(each.alamat) @save(each.alamat, before='submit')" inplace="true" constraint="no empty" />
+									value="@load(each.alamat) @save(each.alamat, before='submit')"
+									inplace="true" constraint="no empty" />
 								<textbox
-									value="@load(each.tlp) @save(each.tlp, before='submit')" inplace="true" constraint="no empty" />
+									value="@load(each.tlp) @save(each.tlp, before='submit')"
+									inplace="true" constraint="no empty" />
 								<button
 									image="/images/icon/16/remove.png"
 									onClick="@command('delete',entity=each)">
@@ -59,20 +64,24 @@
 						<vlayout>
 							<label value="No"></label>
 							<textbox maxlength="8" width="100px"
-								value="@load(vm.newNasabah.no) @save(vm.newNasabah.no , before='confirmAdd')" constraint="no empty" />
+								value="@load(vm.newNasabah.no) @save(vm.newNasabah.no , before='confirmAdd')"
+								constraint="no empty" />
 							<label value="Nama"></label>
 							<textbox
-								value="@load(vm.newNasabah.nama) @save(vm.newNasabah.nama, before='confirmAdd')" constraint="no empty" />
+								value="@load(vm.newNasabah.nama) @save(vm.newNasabah.nama, before='confirmAdd')"
+								constraint="no empty" />
 							<label value="Kota"></label>
 							<textbox
-								value="@load(vm.newNasabah.kota) @save(vm.newNasabah.kota, before='confirmAdd')" constraint="no empty" />
+								value="@load(vm.newNasabah.kota) @save(vm.newNasabah.kota, before='confirmAdd')"
+								constraint="no empty" />
 							<label value="Alamat"></label>
 							<textbox
-								value="@load(vm.newNasabah.alamat) @save(vm.newNasabah.alamat, before='confirmAdd')" constraint="no empty"
-								cols="20" rows="3" />
+								value="@load(vm.newNasabah.alamat) @save(vm.newNasabah.alamat, before='confirmAdd')"
+								constraint="no empty" cols="20" rows="3" />
 							<label value="Tlp"></label>
 							<textbox
-								value="@load(vm.newNasabah.tlp) @save(vm.newNasabah.tlp,before='confirmAdd')" constraint="no empty" />
+								value="@load(vm.newNasabah.tlp) @save(vm.newNasabah.tlp,before='confirmAdd')"
+								constraint="no empty" />
 						</vlayout>
 					</groupbox>
 					<toolbar>
@@ -84,8 +93,7 @@
 			</panel>
 		</popup>
 		<toolbar>
-			<button label="Submit"
-				onClick="@command('submit')">
+			<button label="Submit" onClick="@command('submit')">
 			</button>
 		</toolbar>
 
