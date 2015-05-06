@@ -9,11 +9,13 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+import org.zkoss.zhtml.Object;
 
 import com.yayat.dao.NasabahDao;
 import com.yayat.dao.NasabahMapper;
@@ -29,12 +31,18 @@ public class NasabahDaoImpl implements NasabahDao {
 
 	public void saveOrUpdate(Nasabah nasabah) {
 		checkValidData(nasabah.getNo());
-		SqlParameterSource params= new BeanPropertySqlParameterSource(nasabah);
 		if (isNoNasabahExist(nasabah.getNo())) {
-			jdbcTemplate.update("update nasabah set nama=?,kota=?alamat=?,tlp,where no=?",params);
+			jdbcTemplate.update("update nasabah set nama=?,kota=?,alamat=?,tlp=? where no=?",
+					nasabah.getNama(),
+					nasabah.getKota(),
+					nasabah.getAlamat(),
+					nasabah.getTlp(),
+					nasabah.getNo()
+					);
+			
 		}else{
 			SimpleJdbcInsert jdbcInsert= new SimpleJdbcInsert(dataSource);
-			jdbcInsert.withTableName("nasabah").execute(params);
+			jdbcInsert.withTableName("nasabah").execute(new BeanPropertySqlParameterSource(nasabah));
 		}
 	}
 
